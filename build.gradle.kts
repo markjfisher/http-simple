@@ -7,7 +7,7 @@ plugins {
     id("io.micronaut.aot") version "4.2.1"
 }
 
-version = "0.1"
+version = "1.0.1"
 group = "http.simple"
 
 val kotlinVersion=project.properties.get("kotlinVersion")

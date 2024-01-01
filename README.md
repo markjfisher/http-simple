@@ -10,20 +10,20 @@ To compile and create a releasable jar file, run
 ./gradlew shadowJar
 ```
 
-The resultant jar file is in `build/libs/http-simple-0.1-all.jar`
+The resultant jar file is in `build/libs/http-simple-<version>-all.jar`
 
 ## Running
 
 ```bash
 # Run on default port 8080
-java -jar build/libs/http-simple-0.1-all.jar
+java -jar build/libs/http-simple-<version>-all.jar
 
 # Run with specific port on localhost
-MICRONAUT_SERVER_PORT=8081 java -jar build/libs/http-simple-0.1-all.jar
+MICRONAUT_SERVER_PORT=8081 java -jar build/libs/http-simple-<version>-all.jar
 
 # Run on specific binding and port, using 0.0.0.0 means other service on same network can interact
 # as long as your local firewall doesn't block it.
-MICRONAUT_SERVER_HOST=0.0.0.0 MICRONAUT_SERVER_PORT=8081 java -jar build/libs/http-simple-0.1-all.jar
+MICRONAUT_SERVER_HOST=0.0.0.0 MICRONAUT_SERVER_PORT=8081 java -jar build/libs/http-simple-<version>-all.jar
 ```
 
 ## Endpoints
@@ -40,5 +40,5 @@ There is no delay, the result is a plain text resource
 Chunked Alphabet endpoint.
 
 This endpoint will also return num letters from the alphabet, using chunked resources, returning each block up to 10
-chars at a time, with a 1 second delay between each chunk.
+chars at a time, with a 100 ms delay between each chunk.
 The result is a plain text resource.

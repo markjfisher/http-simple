@@ -20,7 +20,7 @@ class ChunkedAlphabetController {
     fun genLetters(length: Int): Flowable<String> {
         return Flowable.fromIterable(('A'..'Z').asSequence().cycle().take(length).toList())
             .buffer(10)
-            .zipWith(Flowable.interval(1, TimeUnit.SECONDS)) { item, _ -> item.joinToString("") }
+            .zipWith(Flowable.interval(100, TimeUnit.MILLISECONDS)) { item, _ -> item.joinToString("") }
     }
 }
 
