@@ -42,3 +42,7 @@ Chunked Alphabet endpoint.
 This endpoint will also return num letters from the alphabet, using chunked resources, returning each block up to 10
 chars at a time, with a 100 ms delay between each chunk.
 The result is a plain text resource.
+
+### /quotes/random
+
+Fetches quotations from api.quotable.io, then returns it word by word with 200ms pause between each word.
