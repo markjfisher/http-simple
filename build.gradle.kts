@@ -7,7 +7,7 @@ plugins {
     id("io.micronaut.aot") version "4.4.0"
 }
 
-version = "1.0.4"
+version = "1.0.5"
 group = "http.simple"
 
 val kotlinVersion=project.properties.get("kotlinVersion")
@@ -23,6 +23,7 @@ dependencies {
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    implementation("io.github.oshai:kotlin-logging-jvm:7.0.3")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")

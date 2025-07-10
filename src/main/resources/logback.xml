@@ -8,6 +8,9 @@
         </encoder>
     </appender>
 
+    <!-- Enable debug logging for our controller -->
+    <logger name="http.simple.ChunkedAlphabetController" level="debug"/>
+
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
