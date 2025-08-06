@@ -31,11 +31,13 @@ class ChunkedAlphabetController {
                 logger.info {"Buffered chunk of size: ${chunk.size}, first char: ${chunk.firstOrNull()}" }
             }
             .zipWith(
-                Flowable.interval(2000, 500, TimeUnit.MILLISECONDS)
-                    .doOnNext { tick -> 
-                        println("Interval tick: $tick at ${System.currentTimeMillis()}")
-                        logger.info {"Interval tick: ${tick}"}
-                    }
+                Flowable.concat(
+                    Flowable.just(0L), // First tick immediately
+                    Flowable.interval(500, TimeUnit.MILLISECONDS).map { it + 1 } // Subsequent ticks with 500ms delay
+                ).doOnNext { tick -> 
+                    println("Interval tick: $tick at ${System.currentTimeMillis()}")
+                    logger.info {"Interval tick: ${tick}"}
+                }
             ) { item, tick -> 
                 val result = item.joinToString("")
                 val preview = result.take(10) + if (result.length > 10) "..." else ""
